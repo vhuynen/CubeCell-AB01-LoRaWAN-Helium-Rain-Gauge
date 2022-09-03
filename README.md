@@ -19,7 +19,7 @@ This DIY project is a LoRaWAN Rain Gauge based on CubeCell HTCC AB01 development
 
 ## Prerequisites
 
-Crafting your own rain gauge, you will require : 
+Crafting your own rain gauge, you will require: 
 - [CubeCell HTCC AB01](https://heltec.org/project/htcc-ab01/) based on ASR605x chipset and LoRa SX1262 chip, support LoRaWAN 1.0.2 protocol and consumes only **3.5 uA** in deep sleep.
 - A [rain gauge](https://www.aliexpress.com/item/2026877912.html) based on a tipping bucket which activates a magnetic reed switch each time the full bucket toggles.    
 - Battery 18650-30Q 3000 mAh (3.7-4.2 Volts)
@@ -39,7 +39,7 @@ One of the two interrupts is defined on the **GPIO1**, each time the reed switch
 The other interrupt is defined by the LoraWAN cycle (15 minutes by default) which sends data if the counter is higher than zero since the last sending.
 
 In order to verify that the module is still alive, the program sends a daily **health check** message only if no data have been sent for the last 24 hours.  
-An [alert](https://docs.helium.com/use-the-network/console/alerts/) is triggered by the Helium Console if the device has not sent any data from the last 24 hours.
+An [alert](https://docs.helium.com/use-the-network/console/alerts/) is triggered by the Helium Console if the device has not sent any data for the last 24 hours.
 
 ## Uplink Cayenne LPP
 
@@ -57,8 +57,10 @@ An [alert](https://docs.helium.com/use-the-network/console/alerts/) is triggered
 
 By default, the module tries to send data every 15 minutes. This interval is configurable via [LoRaWAN downlink](https://docs.helium.com/use-the-network/console/integrations/http) .
 Set the interval in hours, minutes, or both. Values are submitted in two separate buckets, [hours] and [minutes].
-Values up to 255 are supported in each bucket. Use a tool like https://v2.cryptii.com/decimal/base64 to convert the two values into base64 before submitting them as a downlink in Helium Console on **Fport 1**.
-e.g. "00 10" converts to "AAo=", representing 0 hrs, 10 min
+Values up to 255 are supported in each bucket. Use a tool like https://v2.cryptii.com/decimal/base64 to convert the two values into base64 before submitting them as a downlink in Helium Console on **Fport 1**. e.g.
+```
+"00 10" converts to "AAo=", representing 0 hrs, 10 min
+```
 
 ## Function Decoder
 

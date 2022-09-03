@@ -64,7 +64,7 @@ Values up to 255 are supported in each bucket. Use a tool like https://v2.crypti
 
 ## Function Decoder
 
-Below a function decoder for [Ubidots](https://stem.ubidots.com) integration.
+Below a function decoder for [Ubidots](https://stem.ubidots.com) integration usable from Helium Console.     
 
 > The function converts the [rainfall counter](#rainfall-counter) in millimeter. The gauge measures 0.2794 mm or 0.011".  
 
